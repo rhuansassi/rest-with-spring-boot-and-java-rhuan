@@ -1,21 +1,23 @@
 cors:
-  originPatterns: http://localhost:3000,http://localhost:8080,https://erudio.com.br
+  originPatterns: ${CORS_ORIGIN_PATTERNS}
 security:
   jwt:
     token:
-      secret-key: 53cr37
-      expire-length: 36000000
+      secret-key: ${SECURITY_JWT_TOKEN_SECRET_KEY}
+      expire-length: ${SECURITY_JWT_TOKEN_EXPIRE_LENGTH}
+
 spring:
   datasource:
-    driver-class-name:  com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rest_with_spring_boot_rhuan?useTimezone=true&serverTimezone=UTC
-    username: root
-    password: 123456
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     open-in-view: false
     hibernate:
       ddl-auto: none
       show-sql: false
+
 springdoc:
   pathsToMatch:
     - /auth/**
